@@ -1,0 +1,12 @@
+https://www.youtube.com/watch?v=gkmDls_ZHEc&list=PLfJngDoOHjqq8Sjpbof6zhy_l0d39WDd4&index=2
+
+=> composer init
+    then add to composer.json
+        "autoload": {
+            "psr-4": {
+                "App\\": "app/",
+                "": "core/"
+            },
+            "files": ["route/route.php"]
+        }
+=> composer dump-autoload
