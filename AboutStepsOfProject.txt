@@ -1,5 +1,6 @@
 https://www.youtube.com/watch?v=gkmDls_ZHEc&list=PLfJngDoOHjqq8Sjpbof6zhy_l0d39WDd4&index=2
 
+======try to understand this project as much as you can, in order to use it in your future web application projects======
 => composer init
     then add to composer.json
         "autoload": {
