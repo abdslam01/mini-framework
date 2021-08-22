@@ -8,13 +8,13 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class ControllerMakeCommand extends Command
+class ModelMakeCommand extends Command
 {
-    protected $commandName = 'make:controller';
-    protected $commandDescription = "Create a controller";
+    protected $commandName = 'make:model';
+    protected $commandDescription = "Create a model";
 
     protected $commandArgumentName = "controllerName";
-    protected $commandArgumentDescription = "the controller name"; 
+    protected $commandArgumentDescription = "the model name"; 
 
     protected function configure()
     {
@@ -33,27 +33,29 @@ class ControllerMakeCommand extends Command
         $name = $input->getArgument($this->commandArgumentName);
         $name = str_replace(".", "/", $name);
 
-        $fullControllerName = "./app/controllers/".$name;
-        $ControllerName = preg_replace("#^(.*)(/)([^/]+)$#", "$3", $name);
+        $fullModelName = "./app/models/".$name;
+        $ModelName = preg_replace("#^(.*)(/)([^/]+)$#", "$3", $name);
         $namespace = strpos($name, "/") 
             ? str_replace("/", "\\", preg_replace("#^(.*)(\/)([^/]+)$#", "$1", $name)) : "";
-        $directories = preg_replace("#^(.*)(/)([^/]+)$#", "$1", $fullControllerName);
+        $directories = preg_replace("#^(.*)(/)([^/]+)$#", "$1", $fullModelName);
 
         try{
             if(!file_exists($directories))
                 mkdir($directories, 0777, true);
             
-            $file = fopen("$fullControllerName.php", "w+");
+            $file = fopen("$fullModelName.php", "w+");
             fwrite($file, "<?php
 
-namespace App\controllers".(!empty($namespace)?'\\':'')."$namespace;
+namespace App\models".(!empty($namespace)?'\\':'')."$namespace;
 
-class $ControllerName extends Controller {
+use Model;
+
+class $ModelName extends Model {
     
 }
-            ");
+");
             fclose($file);
-            $output->writeln("<info>$fullControllerName.php is created succeessfully!<info>");
+            $output->writeln("<info>$fullModelName.php is created succeessfully!<info>");
         }catch(Exception $e){
             $output->writeln("<error>File Not Created: $e</error>");
         }
