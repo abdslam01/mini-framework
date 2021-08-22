@@ -19,7 +19,8 @@
         },
         "files": [
             "route/route.php",
-            "database/config.php"
+            "database/config.php",
+            "app/helpers/helpers.php"
         ]
     }
 }

@@ -1,7 +1,7 @@
 <?php
 
 class Request {
-    private $path, $action, $params;
+    private $path, $action, $params, $routeName;
 
     public function __construct(string $path, $action){
         $this->path = trim($path, '/');
@@ -26,5 +26,15 @@ class Request {
         }else // $action is function
             //call_user_func_array($this->action, ...$this->params);
             $this->action->__invoke(...$this->params);
+    }
+
+    public function name(string $name=null){
+        if(!is_null($name))
+            $this->routeName[$name] = $this->path;
+        return $this->routeName;
+    }
+
+    public function getPath(){
+        return $this->path;
     }
 }
