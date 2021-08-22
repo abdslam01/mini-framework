@@ -7,12 +7,17 @@
             "email": "zomiix246@gmail.com"
         }
     ],
-    "require": {},
+    "require": {
+        "illuminate/database": "^8.55"
+    },
     "autoload": {
         "psr-4": {
             "App\\": "app/",
             "": "core/"
         },
-        "files": ["route/route.php"]
+        "files": [
+            "route/route.php",
+            "database/config.php"
+        ]
     }
 }

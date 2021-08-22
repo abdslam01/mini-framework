@@ -9,4 +9,16 @@ https://www.youtube.com/watch?v=gkmDls_ZHEc&list=PLfJngDoOHjqq8Sjpbof6zhy_l0d39W
             },
             "files": ["route/route.php"]
         }
-=> composer dump-autoload
+=> composer dump-autoload (each time you update the composer.json file)
+
+=> then to add Elequent (Illuminate/database)
+we add to composer.json
+    "require": {
+        "illuminate/database": "^8.55",
+        "illuminate/events": "^8.55"
+    }
+    "files": [
+            "route/route.php",
+            "database/config.php"
+    ]
+then: composer update
