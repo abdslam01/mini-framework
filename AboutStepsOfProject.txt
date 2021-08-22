@@ -22,3 +22,22 @@ we add to composer.json
             "database/config.php"
     ]
 then: composer update
+
+=> Add console command (only on command till now)
+change composer.json to be like:
+    "require": {
+        "illuminate/database": "^8.55",
+        "symfony/console": "^5.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "": "core/",
+            "MyConsole\\": "console"
+        },
+        "files": [
+            "route/route.php",
+            "database/config.php"
+        ]
+    }
+the only supported command till now is: php cmd make:controller folder1.folder2.NameController

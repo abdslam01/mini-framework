@@ -8,12 +8,14 @@
         }
     ],
     "require": {
-        "illuminate/database": "^8.55"
+        "illuminate/database": "^8.55",
+        "symfony/console": "^5.3"
     },
     "autoload": {
         "psr-4": {
             "App\\": "app/",
-            "": "core/"
+            "": "core/",
+            "MyConsole\\": "console"
         },
         "files": [
             "route/route.php",
