@@ -3,6 +3,7 @@
 namespace App\controllers;
 
 use App\Models\Post;
+use App\https\MyRequest;
 use App\https\HttpRequest;
 
 class HomeController extends Controller {
@@ -12,8 +13,9 @@ class HomeController extends Controller {
         echo "<br>";
     }
 
-    public function index(){
+    public function index(MyRequest $r){
         echo "HomeController@index using the HTTP method: ".$_SERVER['REQUEST_METHOD'];
+        print_r($r);
         // echo "<pre>";
         //  $x = Post::find(2);
         //  $x->title="new title2";

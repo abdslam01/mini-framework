@@ -22,17 +22,24 @@ class Request {
     }
 
     public function execute(){
+        $tmpObject = new HttpRequest();
+
         if(is_string($this->action)){
             [$controller, $method] = explode("@", $this->action);
             $controller = "App\\controllers\\".$controller;
+
             $reflectionMethodParams = (new ReflectionMethod($controller, $method))->getParameters();
             count($reflectionMethodParams) > 0
                 ? ($paramClass=$reflectionMethodParams[0]->getClass())
                 : ($paramClass=null);
-            $paramClass && $paramClass->getName()===get_class($this->httpRequest)
+
+            $paramClass && (
+                    ($paramClassName = $paramClass->getName())===get_class($tmpObject)
+                            || $paramClass->getParentClass()->getName()===get_class($tmpObject)
+                    )
                 // check if the class of first argument of the class::method is HttpRequest
                 // forget ? => check https://stackoverflow.com/questions/2692481/getting-functions-argument-names
-                ? (new $controller)->$method($this->httpRequest,...$this->params)
+                ? (new $controller)->$method($this->httpRequest = new $paramClassName,...$this->params)
                 : (new $controller)->$method(...$this->params);
 
         }else{ // $action is function
@@ -40,10 +47,14 @@ class Request {
             count($reflectionFunctionParams) > 0
                 ? ($paramClass=$reflectionFunctionParams[0]->getClass())
                 : ($paramClass=null);
-            $paramClass && $paramClass->getName()===get_class($this->httpRequest)
+
+            $paramClass && (
+                        ($paramClassName = $paramClass->getName())===get_class($tmpObject)
+                            || $paramClass->getParentClass()->getName()===get_class($tmpObject)
+                    )
                 // check if the class of first argument of the function is HttpRequest
                 // forget ? => check https://stackoverflow.com/questions/2692481/getting-functions-argument-names
-                ? $this->action->__invoke($this->httpRequest, ...$this->params)
+                ? $this->action->__invoke($this->httpRequest = new $paramClassName, ...$this->params)
                 : $this->action->__invoke(...$this->params);
                 //or call_user_func_array($this->action, ...$this->params);
         }
