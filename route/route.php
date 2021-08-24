@@ -1,6 +1,9 @@
 <?php
 
-Route::get("/{i}/{j}", function($i, $j){
+use App\https\HttpRequest;
+
+Route::get("/{i}/{j}", function(HttpRequest $r, $i, $j){
+    print_r($r);
     echo "direct from route with id=$i, $j";
 })->name("route i,j");
 Route::get("/show/{id}/{ab}", "HomeController@show")->name("show");
