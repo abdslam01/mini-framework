@@ -56,7 +56,7 @@ class Route {
     public static function url(string $name, $params=[]){
         foreach(self::$requests as $requests){
             foreach($requests as $request){
-                if(array_key_exists($name, $request->name())){
+                if(array_key_exists($name, $request->name()??[])){
                     $path = $request->getPath();
                     foreach($params as $key=>$value){
                         $path = str_replace("{{$key}}", $value, $path);
@@ -65,6 +65,7 @@ class Route {
                 }
             }
         }
+        if(!isset($path)) throw new Exception("No route has the name: $name");
         return BASE_URL.$path;
     }
 }
