@@ -25,15 +25,22 @@ class Request {
         if(is_string($this->action)){
             [$controller, $method] = explode("@", $this->action);
             $controller = "App\\controllers\\".$controller;
-            $tmp = (new ReflectionMethod($controller, $method))->getParameters()[0]->getClass();
-            $tmp && $tmp->getName()===get_class($this->httpRequest)
+            $reflectionMethodParams = (new ReflectionMethod($controller, $method))->getParameters();
+            count($reflectionMethodParams) > 0
+                ? ($paramClass=$reflectionMethodParams[0]->getClass())
+                : ($paramClass=null);
+            $paramClass && $paramClass->getName()===get_class($this->httpRequest)
                 // check if the class of first argument of the class::method is HttpRequest
                 // forget ? => check https://stackoverflow.com/questions/2692481/getting-functions-argument-names
                 ? (new $controller)->$method($this->httpRequest,...$this->params)
                 : (new $controller)->$method(...$this->params);
+
         }else{ // $action is function
-            $tmp = (new ReflectionFunction($this->action))->getParameters()[0]->getClass();
-            $tmp && $tmp->getName()===get_class($this->httpRequest)
+            $reflectionFunctionParams = (new ReflectionFunction($this->action))->getParameters();
+            count($reflectionFunctionParams) > 0
+                ? ($paramClass=$reflectionFunctionParams[0]->getClass())
+                : ($paramClass=null);
+            $paramClass && $paramClass->getName()===get_class($this->httpRequest)
                 // check if the class of first argument of the function is HttpRequest
                 // forget ? => check https://stackoverflow.com/questions/2692481/getting-functions-argument-names
                 ? $this->action->__invoke($this->httpRequest, ...$this->params)

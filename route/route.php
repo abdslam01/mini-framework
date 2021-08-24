@@ -6,5 +6,9 @@ Route::get("/{i}/{j}", function(HttpRequest $r, $i, $j){
     print_r($r);
     echo "direct from route with id=$i, $j";
 })->name("route i,j");
+Route::get("/{i}", function(HttpRequest $r){
+    print_r($r);
+    echo "direct from route with [NoParams]";
+});
 Route::get("/show/{id}/{ab}", "HomeController@show")->name("show");
 Route::all("/index", "HomeController@index")->name("index");
