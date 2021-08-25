@@ -23,7 +23,7 @@ class ModelMakeCommand extends Command
             ->setDescription($this->commandDescription)
             ->addArgument(
                 $this->commandArgumentName,
-                InputArgument::OPTIONAL,
+                InputArgument::REQUIRED,
                 $this->commandArgumentDescription
             );
     }
