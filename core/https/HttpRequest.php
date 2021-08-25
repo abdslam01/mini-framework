@@ -2,6 +2,9 @@
 
 namespace Https;
 
+/**
+ * HttpRequest
+ */
 class HttpRequest {
     
 }

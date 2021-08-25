@@ -8,6 +8,9 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
+/**
+ * ControllerMakeCommand
+ */
 class ControllerMakeCommand extends Command
 {
     protected $commandName = 'make:controller';
@@ -15,7 +18,12 @@ class ControllerMakeCommand extends Command
 
     protected $commandArgumentName = "controllerName";
     protected $commandArgumentDescription = "the controller name"; 
-
+    
+    /**
+     * configure
+     *
+     * @return void
+     */
     protected function configure()
     {
         $this
@@ -27,7 +35,14 @@ class ControllerMakeCommand extends Command
                 $this->commandArgumentDescription
             );
     }
-
+    
+    /**
+     * execute
+     *
+     * @param  mixed $input
+     * @param  mixed $output
+     * @return void
+     */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $name = $input->getArgument($this->commandArgumentName);

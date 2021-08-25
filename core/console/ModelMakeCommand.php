@@ -8,6 +8,9 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
+/**
+ * ModelMakeCommand
+ */
 class ModelMakeCommand extends Command
 {
     protected $commandName = 'make:model';
@@ -15,7 +18,12 @@ class ModelMakeCommand extends Command
 
     protected $commandArgumentName = "controllerName";
     protected $commandArgumentDescription = "the model name"; 
-
+    
+    /**
+     * configure
+     *
+     * @return void
+     */
     protected function configure()
     {
         $this
@@ -27,7 +35,14 @@ class ModelMakeCommand extends Command
                 $this->commandArgumentDescription
             );
     }
-
+    
+    /**
+     * execute
+     *
+     * @param  mixed $input
+     * @param  mixed $output
+     * @return void
+     */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $name = $input->getArgument($this->commandArgumentName);
