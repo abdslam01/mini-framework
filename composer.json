@@ -14,13 +14,7 @@
     "autoload": {
         "psr-4": {
             "App\\": "app/",
-            "": "core/",
-            "MyConsole\\": "console"
-        },
-        "files": [
-            "route/route.php",
-            "database/config.php",
-            "app/helpers/helpers.php"
-        ]
+            "": "core/"
+        }
     }
 }

@@ -44,7 +44,7 @@ class Route {
     }
 
     public static function run(){
-        foreach(self::$requests[$_SERVER['REQUEST_METHOD']] as $request){
+        foreach(self::$requests[$_SERVER['REQUEST_METHOD']]??[] as $request){
             if($request->match(trim($_GET['url'], '/'))){
                 $request->execute();
                 die();
@@ -67,5 +67,13 @@ class Route {
         }
         if(!isset($path)) throw new Exception("No route has the name: $name");
         return BASE_URL.$path;
+    }
+
+    public static function loadRoutes(){
+        $files = scandir("../route/");
+        foreach($files as $file){
+            if(substr($file, -4)===".php")
+                require_once "../route/$file";
+        }
     }
 }

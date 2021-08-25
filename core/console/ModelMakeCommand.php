@@ -1,6 +1,6 @@
 <?php
 
-namespace MyConsole;
+namespace Console;
 
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
@@ -46,7 +46,7 @@ class ModelMakeCommand extends Command
             $file = fopen("$fullModelName.php", "w+");
             fwrite($file, "<?php
 
-namespace App\models".(!empty($namespace)?'\\':'')."$namespace;
+namespace App\controllers".(!empty($namespace)?'\\':'')."$namespace;
 
 use Model;
 

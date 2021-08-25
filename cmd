@@ -4,8 +4,9 @@
 require './vendor/autoload.php';
 
 use Symfony\Component\Console\Application;
-use MyConsole\ControllerMakeCommand;
-use MyConsole\ModelMakeCommand;
+use Console\ModelMakeCommand;
+use Console\ControllerMakeCommand;
+
 
 $application = new Application();
 

@@ -1,7 +1,7 @@
 <?php
 
+use Https\HttpRequest;
 use App\https\MyRequest;
-use App\https\HttpRequest;
 
 Route::get("/{i}/{j}", function(HttpRequest $r, $i, $j){
     print_r($r);
@@ -16,4 +16,5 @@ Route::all("/index", "HomeController@index")->name("index");
 
 Route::get("/test", function(MyRequest $r){
     print_r($r);
+    echo route("test");
 })->name("test");

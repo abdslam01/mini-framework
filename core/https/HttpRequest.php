@@ -1,6 +1,6 @@
 <?php
 
-namespace App\https;
+namespace Https;
 
 class HttpRequest {
     

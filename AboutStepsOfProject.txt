@@ -40,4 +40,13 @@ change composer.json to be like:
             "database/config.php"
         ]
     }
-the only supported command till now is: php cmd make:controller folder1.folder2.NameController
+the only supported commands till now is:
+    php cmd make:controller folder1.folder2.NameController
+    php cmd make:model folder1.folder2.NameModel
+
+N o t e:
+    Rebase The Project Structure:
+        - Make All Related Files To Developpement Of The FrameWork On "Core" Folder:
+            * to make it reusable in future project
+            * ability to use it as a dependency in future project
+        - Other Folder Will Remain And Must Be Modified In Developpement Process Of WebApps (Not FrameWork Developpement)

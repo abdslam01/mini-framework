@@ -1,6 +1,6 @@
 <?php
 
-use App\https\HttpRequest;
+use Https\HttpRequest;
 
 class Request {
     private $path, $action, $params, $routeName, $httpRequest;
@@ -8,7 +8,6 @@ class Request {
     public function __construct(string $path, $action){
         $this->path = trim($path, '/');
         $this->action = $action;
-        $this->httpRequest = new HttpRequest();
     }
 
     public function match($url){
