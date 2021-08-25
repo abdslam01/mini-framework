@@ -2,9 +2,22 @@
 
 use Database\Database;
 
-class Migration {
+/**
+ * Migration
+ */
+class Migration {    
+    /**
+     * db
+     *
+     * @var Database\Database
+     */
     protected $db;
-
+    
+    /**
+     * __construct
+     *
+     * @return void
+     */
     public function __construct(){
         $this->db = new Database();
     }

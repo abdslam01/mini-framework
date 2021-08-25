@@ -8,6 +8,9 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
+/**
+ * MigrationMakeCommand
+ */
 class MigrationMakeCommand extends Command
 {
     protected $commandName = 'make:migration';
@@ -15,7 +18,12 @@ class MigrationMakeCommand extends Command
 
     protected $commandArgumentName = "migrationTableName";
     protected $commandArgumentDescription = "the migration name"; 
-
+    
+    /**
+     * configure
+     *
+     * @return void
+     */
     protected function configure()
     {
         $this
@@ -27,7 +35,14 @@ class MigrationMakeCommand extends Command
                 $this->commandArgumentDescription
             );
     }
-
+    
+    /**
+     * execute
+     *
+     * @param  mixed $input
+     * @param  mixed $output
+     * @return void
+     */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $tableName = $input->getArgument($this->commandArgumentName);

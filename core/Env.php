@@ -1,6 +1,14 @@
 <?php
 
-class Env{
+/**
+ * Env
+ */
+class Env{    
+    /**
+     * load
+     *
+     * @return void
+     */
     public static function load(){
         $envFilePath = BASE_DIR."/.env";
         if(!file_exists($envFilePath))

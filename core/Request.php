@@ -2,14 +2,30 @@
 
 use Https\HttpRequest;
 
+/**
+ * Request
+ */
 class Request {
-    private $path, $action, $params, $routeName, $httpRequest;
-
+    private $path, $action, $params, $routeName;
+    
+    /**
+     * __construct
+     *
+     * @param  mixed $path
+     * @param  mixed $action
+     * @return void
+     */
     public function __construct(string $path, $action){
         $this->path = trim($path, '/');
         $this->action = $action;
     }
-
+    
+    /**
+     * match
+     *
+     * @param  mixed $url
+     * @return bool
+     */
     public function match($url){
         $path = preg_replace("#({\w+})#", "([^/]+)", $this->path);
         if(preg_match("#^$path$#", $url, $results)){
@@ -19,7 +35,12 @@ class Request {
         }
         return false;
     }
-
+    
+    /**
+     * execute
+     *
+     * @return void
+     */
     public function execute(){
         if(is_string($this->action)){
             [$controller, $method] = explode("@", $this->action);
@@ -56,7 +77,13 @@ class Request {
                 //or call_user_func_array($this->action, ...$this->params);
         }
     }
-
+    
+    /**
+     * name
+     *
+     * @param  mixed $name
+     * @return array
+     */
     public function name(string $name=null){
         if(!is_null($name))
             $this->routeName[$name] = $this->path;

@@ -7,6 +7,9 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
+/**
+ * MigrationExecuteCommand
+ */
 class MigrationExecuteCommand extends Command
 {
     protected $commandName = 'migrate';
@@ -17,7 +20,12 @@ class MigrationExecuteCommand extends Command
 
     protected $downCommandOptionName = "down"; //specified like "php cmd migrate down"
     protected $downCommandOptionDescription = 'If set, it will execute down() in migrations';
-
+    
+    /**
+     * configure
+     *
+     * @return void
+     */
     protected function configure()
     {
         $this
@@ -37,7 +45,14 @@ class MigrationExecuteCommand extends Command
             )
         ;
     }
-
+    
+    /**
+     * execute
+     *
+     * @param  mixed $input
+     * @param  mixed $output
+     * @return void
+     */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $files = scandir("./app/database/migrations");

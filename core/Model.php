@@ -3,7 +3,15 @@
 use Illuminate\Database\Eloquent\Model as BaseModel;
 use Database\Database;
 
-class Model extends BaseModel{
+/**
+ * Model
+ */
+class Model extends BaseModel{    
+    /**
+     * __construct
+     *
+     * @return void
+     */
     public function __construct(){
         Database::init();
     }

@@ -4,9 +4,17 @@ namespace Database;
 
 use Illuminate\Database\Capsule\Manager as Capsule;
 
+/**
+ * Database
+ */
 class Database{
     public $capsule, $schema;
-
+    
+    /**
+     * __construct
+     *
+     * @return void
+     */
     public function __construct(){
         $this->capsule = new Capsule;
 
@@ -25,7 +33,12 @@ class Database{
         $this->capsule->setAsGlobal();
         $this->schema = $this->capsule->schema();
     }
-
+    
+    /**
+     * init
+     *
+     * @return void
+     */
     public static function init(){
         new Database();
     }
