@@ -17,4 +17,5 @@ Route::all("/index", "HomeController@index")->name("index");
 Route::get("/test", function(MyRequest $r){
     print_r($r);
     echo route("test");
+    echo "\n".env2("author");
 })->name("test");

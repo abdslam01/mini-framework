@@ -9,14 +9,14 @@ class Database{
         $capsule = new Capsule;
 
         $capsule->addConnection([
-            'driver' => 'mysql',
-            'host' => 'localhost',
-            'database' => 'mvc_course',
-            'username' => 'root',
-            'password' => '',
-            'charset' => 'utf8',
-            'collation' => 'utf8_unicode_ci',
-            'prefix' => '',
+            'driver' => env2('driver', 'mysql'),
+            'host' => env2('host', 'localhost'),
+            'database' => env2('database', 'mvc_course'),
+            'username' => env2('username', 'root'),
+            'password' => env2('password', ''),
+            'charset' => env2('charset', 'utf8'),
+            'collation' => env2('collation', 'utf8_unicode_ci'),
+            'prefix' => env2('prefix', ''),
         ]);
 
         $capsule->bootEloquent();

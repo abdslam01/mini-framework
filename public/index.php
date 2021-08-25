@@ -10,6 +10,7 @@
 
     require_once "../vendor/autoload.php";
 
+    Env::load();
     Helpers::load();
     Route::loadRoutes();
     Route::run();
