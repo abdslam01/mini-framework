@@ -2,7 +2,7 @@
 
 class Env{
     public static function load(){
-        $envFilePath = "../.env";
+        $envFilePath = BASE_DIR."/.env";
         if(!file_exists($envFilePath))
             throw new Exception(".env file not found");
 

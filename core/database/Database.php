@@ -5,10 +5,12 @@ namespace Database;
 use Illuminate\Database\Capsule\Manager as Capsule;
 
 class Database{
-    public static function init(){
-        $capsule = new Capsule;
+    public $capsule, $schema;
 
-        $capsule->addConnection([
+    public function __construct(){
+        $this->capsule = new Capsule;
+
+        $this->capsule->addConnection([
             'driver' => env2('driver', 'mysql'),
             'host' => env2('host', 'localhost'),
             'database' => env2('database', 'mvc_course'),
@@ -19,6 +21,12 @@ class Database{
             'prefix' => env2('prefix', ''),
         ]);
 
-        $capsule->bootEloquent();
+        $this->capsule->bootEloquent();
+        $this->capsule->setAsGlobal();
+        $this->schema = $this->capsule->schema();
+    }
+
+    public static function init(){
+        new Database();
     }
 }
