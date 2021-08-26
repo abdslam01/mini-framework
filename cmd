@@ -12,8 +12,6 @@ use Abdslam01\MiniFrameworkCore\Console\MigrationMakeCommand;
 use Abdslam01\MiniFrameworkCore\Console\ControllerMakeCommand;
 use Abdslam01\MiniFrameworkCore\Console\MigrationExecuteCommand;
 
-define("BASE_DIR", dirname(__FILE__));
-
 require_once "./vendor/autoload.php";
 
 Env::load();

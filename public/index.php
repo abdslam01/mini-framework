@@ -11,7 +11,6 @@ use Abdslam01\MiniFrameworkCore\Helpers\Helpers;
             explode("=",$_SERVER['REDIRECT_QUERY_STRING'])[1], "", $_SERVER['REQUEST_URI']
         )
     );
-    define("BASE_DIR", dirname(__DIR__));
 
     require_once "../vendor/autoload.php";
 
