@@ -1,12 +1,14 @@
 <?php
 
+namespace Abdslam01\MiniFrameworkCore;
+
+use Abdslam01\MiniFrameworkCore\Database\Database;
 use Illuminate\Database\Eloquent\Model as BaseModel;
-use Database\Database;
 
 /**
  * Model
  */
-class Model extends BaseModel{    
+class Model extends BaseModel{
     /**
      * __construct
      *

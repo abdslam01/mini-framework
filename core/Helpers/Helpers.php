@@ -1,5 +1,10 @@
 <?php
 
+namespace Abdslam01\MiniFrameworkCore\Helpers;
+
+use Exception;
+use Abdslam01\MiniFrameworkCore\Route;
+
 /**
  * Helpers
  */

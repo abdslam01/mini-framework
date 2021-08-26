@@ -1,6 +1,10 @@
 <?php
 
-use Https\HttpRequest;
+namespace Abdslam01\MiniFrameworkCore;
+
+use ReflectionMethod;
+use ReflectionFunction;
+use Abdslam01\MiniFrameworkCore\Https\HttpRequest;
 
 /**
  * Request

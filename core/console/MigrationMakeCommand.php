@@ -1,6 +1,6 @@
 <?php
 
-namespace Console;
+namespace Abdslam01\MiniFrameworkCore\Console;
 
 use Exception;
 use Symfony\Component\Console\Command\Command;
@@ -57,7 +57,7 @@ class MigrationMakeCommand extends Command
 
 namespace App\database\migrations;
 
-use Migration;
+use Abdslam01\MiniFrameworkCore\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
 class $MigrationName extends Migration{

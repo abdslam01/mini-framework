@@ -2,11 +2,14 @@
 
 namespace App\controllers;
 
-use Controller;
 use App\Models\Post;
 use App\https\MyRequest;
-use Https\HttpRequest;
+use Abdslam01\MiniFrameworkCore\Controller;
+use Abdslam01\MiniFrameworkCore\Https\HttpRequest;
 
+/**
+ * HomeController
+ */
 class HomeController extends Controller {
     public function show(HttpRequest $r,$a, $b){
         print_r($r);

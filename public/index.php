@@ -1,5 +1,9 @@
 <?php
 
+use Abdslam01\MiniFrameworkCore\Env;
+use Abdslam01\MiniFrameworkCore\Route;
+use Abdslam01\MiniFrameworkCore\Helpers\Helpers;
+
     define('BASE_URL', 
         (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http")
         ."://$_SERVER[HTTP_HOST]"

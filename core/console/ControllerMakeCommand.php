@@ -1,6 +1,6 @@
 <?php
 
-namespace Console;
+namespace Abdslam01\MiniFrameworkCore\Console;
 
 use Exception;
 use Symfony\Component\Console\Command\Command;
@@ -62,6 +62,8 @@ class ControllerMakeCommand extends Command
             fwrite($file, "<?php
 
 namespace App\controllers".(!empty($namespace)?'\\':'')."$namespace;
+
+use Abdslam01\MiniFrameworkCore\Controller;
 
 class $ControllerName extends Controller {
     

@@ -1,6 +1,8 @@
 <?php
 
-use Database\Database;
+namespace Abdslam01\MiniFrameworkCore;
+
+use Abdslam01\MiniFrameworkCore\Database\Database;
 
 /**
  * Migration

@@ -1,8 +1,9 @@
 <?php
 
-namespace Database;
+namespace Abdslam01\MiniFrameworkCore\Database;
 
 use Illuminate\Database\Capsule\Manager as Capsule;
+use function Abdslam01\MiniFrameworkCore\Helpers\env2;
 
 /**
  * Database

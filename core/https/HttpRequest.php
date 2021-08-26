@@ -1,6 +1,6 @@
 <?php
 
-namespace Https;
+namespace Abdslam01\MiniFrameworkCore\Https;
 
 /**
  * HttpRequest

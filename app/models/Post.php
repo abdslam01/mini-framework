@@ -2,7 +2,7 @@
 
 namespace App\models;
 
-use Model;
+use Abdslam01\MiniFrameworkCore\Model;
 
 class Post extends Model {
     

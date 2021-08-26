@@ -1,6 +1,6 @@
 <?php
 
-namespace Console;
+namespace Abdslam01\MiniFrameworkCore\Console;
 
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputOption;

@@ -2,7 +2,7 @@
 
 namespace App\https;
 
-use Https\HttpRequest;
+use Abdslam01\MiniFrameworkCore\Https\HttpRequest;
 
 class MyRequest extends HttpRequest {
     

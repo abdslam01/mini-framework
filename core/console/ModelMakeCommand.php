@@ -1,6 +1,6 @@
 <?php
 
-namespace Console;
+namespace Abdslam01\MiniFrameworkCore\Console;
 
 use Exception;
 use Symfony\Component\Console\Command\Command;
@@ -63,7 +63,7 @@ class ModelMakeCommand extends Command
 
 namespace App\controllers".(!empty($namespace)?'\\':'')."$namespace;
 
-use Model;
+use Abdslam01\MiniFrameworkCore\Model;
 
 class $ModelName extends Model {
     

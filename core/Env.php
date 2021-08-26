@@ -1,5 +1,8 @@
 <?php
 
+namespace Abdslam01\MiniFrameworkCore;
+
+use Exception;
 /**
  * Env
  */

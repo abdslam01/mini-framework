@@ -2,8 +2,8 @@
 
 namespace App\database\migrations;
 
-use Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Abdslam01\MiniFrameworkCore\Migration;
 
 class m1629926540_comment extends Migration{
     public function up(){
