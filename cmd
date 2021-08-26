@@ -3,12 +3,14 @@
 
 require './vendor/autoload.php';
 
+use Abdslam01\MiniFrameworkCore\Env;
 use Symfony\Component\Console\Application;
-use Console\ModelMakeCommand;
-use Console\ControllerMakeCommand;
-use Console\MigrationExecuteCommand;
-use Console\MigrationMakeCommand;
-use Database\Database;
+use Abdslam01\MiniFrameworkCore\Helpers\Helpers;
+use Abdslam01\MiniFrameworkCore\Database\Database;
+use Abdslam01\MiniFrameworkCore\Console\ModelMakeCommand;
+use Abdslam01\MiniFrameworkCore\Console\MigrationMakeCommand;
+use Abdslam01\MiniFrameworkCore\Console\ControllerMakeCommand;
+use Abdslam01\MiniFrameworkCore\Console\MigrationExecuteCommand;
 
 define("BASE_DIR", dirname(__FILE__));
 
