@@ -19,7 +19,7 @@ And Other Required Field
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+This framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
 ## Contributers
 Please if you have any suggest, idea or help dont hesitate to share it with us.
