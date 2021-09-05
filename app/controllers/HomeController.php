@@ -7,6 +7,8 @@ use App\https\MyRequest;
 use Abdslam01\MiniFrameworkCore\Controller;
 use Abdslam01\MiniFrameworkCore\Https\HttpRequest;
 
+use function Abdslam01\MiniFrameworkCore\Helpers\view;
+
 /**
  * HomeController
  */
@@ -27,5 +29,9 @@ class HomeController extends Controller {
         // // $x->image="imagelink";
         //  $x->save();
         print_r(Post::all());
+    }
+
+    public function home(){
+        return view("welcome");
     }
 }

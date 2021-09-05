@@ -22,3 +22,5 @@ Route::get("/test", function(MyRequest $r){
     echo route("test");
     // echo "\n".env2("author");
 })->name("test");
+
+Route::get("/home", "HomeController@home")->name("home");
