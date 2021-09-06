@@ -1,1 +1,1 @@
-<h1>Welcome in the Home Page</h1>
+<h1>Welcome in the Home Page <?=$name?></h1>
