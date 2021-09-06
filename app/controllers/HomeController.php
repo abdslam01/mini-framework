@@ -32,6 +32,6 @@ class HomeController extends Controller {
     }
 
     public function home(){
-        return view("welcome", ['name'=>"Abdessalam"]);
+        return view("welcome", ['name'=>"Abdessalam", "data"=>[1, 2, 3, 4]]);
     }
 }
