@@ -15,7 +15,9 @@ password=     //pass
 And Other Required Field
 ```
 - execute `php cmd migrate` to create and configure database and its schema.
-- consult the project in browser at __http://127.0.0.1/project__
+- for execution, you got two option:
+  - for development: execute `php cmd serve` anc consult __http://127.0.0.1:8080__
+  - for deployment: consult the project in browser at __http://127.0.0.1/path_to_project/project__
 
 ## License
 
