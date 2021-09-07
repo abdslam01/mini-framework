@@ -12,6 +12,7 @@ use Abdslam01\MiniFrameworkCore\Console\RequestMakeCommand;
 use Abdslam01\MiniFrameworkCore\Console\MigrationMakeCommand;
 use Abdslam01\MiniFrameworkCore\Console\ControllerMakeCommand;
 use Abdslam01\MiniFrameworkCore\Console\MigrationExecuteCommand;
+use Abdslam01\MiniFrameworkCore\Console\ProjectServeCommand;
 
 require_once "./vendor/autoload.php";
 
@@ -27,5 +28,6 @@ $application->add(new ModelMakeCommand());
 $application->add(new MigrationExecuteCommand());
 $application->add(new MigrationMakeCommand());
 $application->add(new RequestMakeCommand());
+$application->add(new ProjectServeCommand());
 
 $application->run();
