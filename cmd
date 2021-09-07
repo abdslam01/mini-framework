@@ -14,8 +14,6 @@ use Abdslam01\MiniFrameworkCore\Console\ControllerMakeCommand;
 use Abdslam01\MiniFrameworkCore\Console\MigrationExecuteCommand;
 use Abdslam01\MiniFrameworkCore\Console\ProjectServeCommand;
 
-require_once "./vendor/autoload.php";
-
 Env::load();
 Helpers::load();
 Database::init();
