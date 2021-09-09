@@ -7,7 +7,10 @@ use App\https\MyRequest;
 use Abdslam01\MiniFrameworkCore\Controller;
 use Abdslam01\MiniFrameworkCore\Https\HttpRequest;
 
+use function Abdslam01\MiniFrameworkCore\Helpers\redirect;
+use function Abdslam01\MiniFrameworkCore\Helpers\route;
 use function Abdslam01\MiniFrameworkCore\Helpers\view;
+use function Abdslam01\MiniFrameworkCore\Helpers\session;
 
 /**
  * HomeController
@@ -28,7 +31,13 @@ class HomeController extends Controller {
         // // $x->content="content content content content";
         // // $x->image="imagelink";
         //  $x->save();
-        print_r(Post::all());
+
+        print_r(Post::all()->toArray());
+        print_r($r->getBody());
+        if(session()->hasFlash("success"))
+            echo "<h2>".session()->getFlash("success")."</h2>";
+        else
+            echo "<h2>No session 'success' available</h2>";
     }
 
     public function home(){
