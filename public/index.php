@@ -8,7 +8,7 @@ use Abdslam01\MiniFrameworkCore\Helpers\Helpers;
         (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http")
         ."://$_SERVER[HTTP_HOST]"
         .(
-            in_array('QUERY_STRING', array_keys($_SERVER))
+            in_array('QUERY_STRING', array_keys($_SERVER)) && strstr($_SERVER['QUERY_STRING'], "&url=")
             ? str_replace(explode("&url=", $_SERVER['QUERY_STRING'])[1], "", $_SERVER['REQUEST_URI'])
             : "/"
         )
